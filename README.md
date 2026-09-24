@@ -33,17 +33,21 @@ npm run preview
 
 ## Deploy to GitHub Pages
 
-1. Push this repo to GitHub.
-2. Enable **Pages** → Source: **GitHub Actions** or deploy from `gh-pages` branch.
-3. One-command deploy (creates `gh-pages` branch from `dist`):
+Live site: https://nazarlakusta.github.io/kairos-experiences/
+
+1. Push to `main` — the workflow builds the site and publishes the `gh-pages` branch.
+2. In the repo: **Settings → Pages → Build and deployment**
+   - Source: **Deploy from a branch**
+   - Branch: **`gh-pages`** / **`/` (root)**
+3. Wait ~1 minute for the site to update.
+
+Local one-off deploy:
 
 ```bash
 npm run deploy
 ```
 
-The Vite `base` is set to `./` so asset paths work for both user sites (`username.github.io`) and project sites (`username.github.io/repo-name`).
-
-If you use a custom Actions workflow, build with `npm run build` and publish the `dist` folder.
+Vite `base` is `/kairos-experiences/` for this project Pages URL.
 
 ## Interview talking points
 
