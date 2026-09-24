@@ -51,7 +51,7 @@ export function Services({ onSelect }: ServicesProps) {
                   <motion.button
                     type="button"
                     onClick={() => onSelect(service)}
-                    className="rounded-full border border-ink/20 px-4 py-2 text-sm font-semibold text-ink transition-colors group-hover:border-ink group-hover:bg-ink group-hover:text-foam"
+                    className="rounded-xl border border-ink/20 px-4 py-2 text-sm font-semibold text-ink transition-colors group-hover:border-ink group-hover:bg-ink group-hover:text-foam"
                     whileTap={{ scale: 0.97 }}
                   >
                     Book this

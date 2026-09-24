@@ -60,7 +60,7 @@ export function Nav({ onBook }: NavProps) {
           <button
             type="button"
             onClick={onBook}
-            className={`rounded-full px-4 py-2 text-sm font-semibold transition-transform hover:scale-[1.02] active:scale-[0.98] ${
+            className={`rounded-xl px-4 py-2 text-sm font-semibold transition-transform hover:scale-[1.02] active:scale-[0.98] ${
               onDark ? 'bg-foam text-ink' : 'bg-ink text-foam'
             }`}
           >

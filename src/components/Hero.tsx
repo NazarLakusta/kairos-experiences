@@ -75,7 +75,7 @@ export function Hero({ onBook }: HeroProps) {
           <button
             type="button"
             onClick={onBook}
-            className="rounded-full bg-foam px-6 py-3 text-sm font-semibold text-ink transition-transform hover:scale-[1.03] active:scale-[0.98]"
+            className="rounded-xl bg-foam px-6 py-3 text-sm font-semibold text-ink transition-transform hover:scale-[1.03] active:scale-[0.98]"
           >
             Reserve a moment
           </button>

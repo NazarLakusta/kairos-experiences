@@ -242,7 +242,14 @@ export function BookingPanel({ open, onClose, initialServiceId }: BookingProps) 
                     <p className="rounded-2xl bg-mist px-4 py-3 text-sm text-muted">
                       <span className="font-semibold text-ink">{selected.name}</span>
                       {' · '}
-                      {form.date} at {form.time} · {form.guests} guests
+                      {form.date
+                        ? new Date(form.date + 'T12:00:00').toLocaleDateString('en-GB', {
+                            weekday: 'short',
+                            day: 'numeric',
+                            month: 'short',
+                          })
+                        : ''}{' '}
+                      at {form.time} · {form.guests} guests
                     </p>
                     <label className="block">
                       <span className="text-sm font-semibold text-ink">Name</span>
@@ -291,7 +298,7 @@ export function BookingPanel({ open, onClose, initialServiceId }: BookingProps) 
                   setStep((s) => Math.max(0, s - 1))
                 }}
                 disabled={step === 0}
-                className="inline-flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-muted disabled:opacity-30"
+                className="inline-flex items-center gap-1 rounded-xl px-3 py-2 text-sm font-medium text-muted disabled:opacity-30"
               >
                 <ChevronLeft size={16} />
                 Back
@@ -307,7 +314,7 @@ export function BookingPanel({ open, onClose, initialServiceId }: BookingProps) 
                     setError(null)
                     setStep((s) => s + 1)
                   }}
-                  className="rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-foam transition-transform hover:scale-[1.02]"
+                  className="rounded-xl bg-ink px-5 py-2.5 text-sm font-semibold text-foam transition-transform hover:scale-[1.02]"
                 >
                   Continue
                 </button>
@@ -315,7 +322,7 @@ export function BookingPanel({ open, onClose, initialServiceId }: BookingProps) 
                 <button
                   type="button"
                   onClick={submit}
-                  className="rounded-full bg-leaf px-5 py-2.5 text-sm font-semibold text-foam transition-transform hover:scale-[1.02]"
+                  className="rounded-xl bg-leaf px-5 py-2.5 text-sm font-semibold text-foam transition-transform hover:scale-[1.02]"
                 >
                   Send request
                 </button>
@@ -332,18 +339,25 @@ export function BookingPanel({ open, onClose, initialServiceId }: BookingProps) 
             animate={{ opacity: 1, scale: 1 }}
             transition={{ type: 'spring', stiffness: 320, damping: 24 }}
           >
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-leaf/15 text-leaf">
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-leaf/15 text-leaf">
               <Check size={28} strokeWidth={2.5} />
             </div>
             <p className="mt-5 text-muted leading-relaxed">
               Thanks, {form.name.split(' ')[0]}. We will confirm{' '}
-              <span className="font-semibold text-ink">{selected.name}</span> on {form.date} at{' '}
-              {form.time} within a few hours.
+              <span className="font-semibold text-ink">{selected.name}</span> on{' '}
+              {form.date
+                ? new Date(form.date + 'T12:00:00').toLocaleDateString('en-GB', {
+                    weekday: 'long',
+                    day: 'numeric',
+                    month: 'long',
+                  })
+                : ''}{' '}
+              at {form.time} within a few hours.
             </p>
             <button
               type="button"
               onClick={resetAndClose}
-              className="mt-8 rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-foam"
+              className="mt-8 rounded-xl bg-ink px-5 py-2.5 text-sm font-semibold text-foam"
             >
               Done
             </button>
@@ -380,7 +394,7 @@ export function BookingCTA({ onBook }: BookingCTAProps) {
           <button
             type="button"
             onClick={onBook}
-            className="mt-8 rounded-full bg-foam px-6 py-3 text-sm font-semibold text-ink transition-transform hover:scale-[1.03] active:scale-[0.98]"
+            className="mt-8 rounded-xl bg-foam px-6 py-3 text-sm font-semibold text-ink transition-transform hover:scale-[1.03] active:scale-[0.98]"
           >
             Open booking
           </button>
