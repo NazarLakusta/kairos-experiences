@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react'
 import { BookingCTA, BookingPanel } from './components/Booking'
 import { Footer } from './components/Footer'
 import { Hero } from './components/Hero'
+import { Manifesto } from './components/Manifesto'
 import { Nav } from './components/Nav'
 import { Process } from './components/Process'
 import { Services } from './components/Services'
@@ -31,6 +32,7 @@ export default function App() {
       <Nav onBook={() => openBooking()} />
       <main>
         <Hero onBook={() => openBooking()} />
+        <Manifesto />
         <Services onSelect={onSelectService} />
         <Process />
         <Space />

@@ -25,10 +25,17 @@ export function Services({ onSelect }: ServicesProps) {
         <ul className="mt-14 divide-y divide-ink/10 border-y border-ink/10">
           {services.map((service, i) => (
             <Reveal key={service.id} delay={i * 0.06} y={20}>
-              <li className="group grid gap-4 py-8 md:grid-cols-[1.2fr_1fr_auto] md:items-end md:gap-8">
+              <li className="group relative grid gap-4 py-8 md:grid-cols-[1.2fr_1fr_auto] md:items-end md:gap-8">
+                <motion.span
+                  className="absolute inset-x-0 bottom-0 h-px origin-left bg-leaf"
+                  initial={{ scaleX: 0 }}
+                  whileHover={{ scaleX: 1 }}
+                  transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                  aria-hidden
+                />
                 <div>
                   <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-                    <h3 className="font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+                    <h3 className="font-display text-2xl font-bold tracking-tight text-ink transition-colors group-hover:text-leaf sm:text-3xl">
                       {service.name}
                     </h3>
                     <span className="text-sm text-muted">
@@ -36,6 +43,7 @@ export function Services({ onSelect }: ServicesProps) {
                     </span>
                   </div>
                   <p className="mt-3 max-w-lg text-muted">{service.summary}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted md:hidden">{service.detail}</p>
                 </div>
                 <p className="hidden text-sm leading-relaxed text-muted md:block">{service.detail}</p>
                 <div className="flex items-center justify-between gap-6 md:flex-col md:items-end md:justify-end">

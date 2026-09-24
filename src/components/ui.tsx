@@ -37,6 +37,26 @@ export function useScrolled(threshold = 24) {
   return scrolled
 }
 
+/** True once the user has scrolled most of the way through the first viewport. */
+export function usePastHero(ratio = 0.72) {
+  const [past, setPast] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => {
+      setPast(window.scrollY > window.innerHeight * ratio)
+    }
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+    }
+  }, [ratio])
+
+  return past
+}
+
 type ModalProps = {
   open: boolean
   onClose: () => void
