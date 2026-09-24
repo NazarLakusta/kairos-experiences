@@ -29,7 +29,7 @@ export function Nav({ onBook }: NavProps) {
       <div
         className={`mx-auto flex max-w-6xl items-center justify-between px-5 py-4 transition-all duration-500 sm:px-8 ${
           scrolled
-            ? 'mt-3 rounded-2xl border border-fog/40 bg-foam/90 px-4 shadow-[0_8px_30px_rgba(11,22,18,0.08)] backdrop-blur-md sm:px-6'
+            ? 'mt-3 rounded-2xl border border-fog/50 bg-foam px-4 shadow-[0_8px_30px_rgba(11,22,18,0.1)] sm:px-6'
             : ''
         }`}
       >
